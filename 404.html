@@ -237,5 +237,23 @@
     <!--script(src='https://unpkg.com/container-query-polyfill/cqfill.iife.min.js')-->
     <script src="static/js/vendor.js"></script>
     <script src="static/js/main.js"></script>
+    <script>
+      let context = "b-callback-form";
+      const form = $(`.${context}`).find("form");
+      const action = $(form).attr("action");
+      $(form).on("submit", function () {
+          event.preventDefault();
+          $.ajax({
+              type: "POST",
+              url: url,
+              data: $(form).serialize(),
+          }).done(function () {
+              $(form).find(".b-callback-form__form-control").val("");
+              $(form).trigger("reset");
+              event.preventDefault();
+          });
+          return false;
+      });
+    </script>
   </body>
 </html>

@@ -231,9 +231,9 @@
                               <div class="tab-pane fade" id="pills-info" role="tabpanel" aria-labelledby="pills-info-tab">
                                         <div class="b-tabs__content">
                                                   <div class="b-tabs__text">
-                                                            <div class="b-tabs__subtitle">01 / Здоровье
+                                                            <div class="b-tabs__subtitle">01 / Релакс
                                                             </div>
-                                                            <div class="b-tabs__title">Центр традиционой китайской медицины
+                                                            <div class="b-tabs__title">SPA
                                                             </div>
                                                             <div class="b-tabs__desc">Текст про рассчрочку? Поселок расположен на берегу озера Тургояк, являющемся жемчужиной Южного Урала, славящемся своей кристально чистой водой, окружен хвойными лесами и горными хребтами Урал-Тау и Ильменским.
                                                             </div>
@@ -249,7 +249,7 @@
                                                             </div>
                                                             <div class="b-tabs__title">Центр традиционой китайской медицины
                                                             </div>
-                                                            <div class="b-tabs__desc">Текст про рассчрочку? Поселок расположен на берегу озера Тургояк, являющемся жемчужиной Южного Урала, славящемся своей кристально чистой водой, окружен хвойными лесами и горными хребтами Урал-Тау и Ильменским.
+                                                            <div class="b-tabs__desc">Философия SPA-центра «Золотой меридиан» – это гармония души и тела. Мы уделяем особое внимание искусству релаксации и успокоения. Индивидуальный подход к каждому гостю и разнообразие традиционных и экзотических SPA-услуг делают «Золотой меридиан» идеальным местом для отдыха и расслабления.
                                                             </div>
                                                   </div>
                                                   <div class="b-tabs__img"><img src="static/img/content/infra_tabs.jpg"/>
@@ -707,5 +707,23 @@
     <!--script(src='https://unpkg.com/container-query-polyfill/cqfill.iife.min.js')-->
     <script src="static/js/vendor.js"></script>
     <script src="static/js/main.js"></script>
+    <script>
+      let context = "b-callback-form";
+      const form = $(`.${context}`).find("form");
+      const action = $(form).attr("action");
+      $(form).on("submit", function () {
+          event.preventDefault();
+          $.ajax({
+              type: "POST",
+              url: url,
+              data: $(form).serialize(),
+          }).done(function () {
+              $(form).find(".b-callback-form__form-control").val("");
+              $(form).trigger("reset");
+              event.preventDefault();
+          });
+          return false;
+      });
+    </script>
   </body>
 </html>

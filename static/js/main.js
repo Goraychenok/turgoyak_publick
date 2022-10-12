@@ -184,10 +184,7 @@ __webpack_require__.r(__webpack_exports__);
   }
 
   var swiper = new Swiper(`.${context} .mySwiper`, {
-    //effect: window.outerWidth > 768 ?  'slide' : 'fade',
     effect: 'fade',
-    loop: true,
-    //speed: 600,
     slidesPerView: 1,
     pagination: {
       el: ".b-main-slider .swiper-pagination",

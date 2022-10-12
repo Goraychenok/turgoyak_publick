@@ -1,6 +1,6 @@
 <?php
 
-$to = 'test-t0x3w9x4q@srv1.mail-tester.com'; // Email для получения письма
+$to = 'kamalamaa@yandex.ru'; // Email для получения письма
 $headers = "Content-type: text/html; charset=utf-8 \r\n";
 $headers .= "MIME-Version: 1.0 \r\n";
 $headers .= "From: info@2touch.ru"; // Откуда отправить. Для проверки оставь этот
@@ -23,8 +23,7 @@ foreach ($_POST as $key => $value) {
 }
 
 
-print_r($message);
-die();
+
  //Если письмо отправлено, то возвращаем ответ на клиент со статусом "success"
 if (mail($to, $subject, $message, $headers)) {
     echo json_encode(['status' => 'success']);
