@@ -302,35 +302,41 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (function () {
-  let context = "page__innert-b-tabs";
+  let context = "b-tabs";
 
   if ($(`.${context}`).length == 0) {
     return;
   }
 
-  const screenWidth = window.screen.width;
-  const heightBlock = document.querySelector(".b-tabs_black").offsetHeight;
-  const heightMainBlock = document.querySelector(".page__b-main-block").offsetHeight;
-  const blackBlock = $(".b-tabs_black");
-  const parent = $(".page__innert-b-tabs");
-  const positionTop = heightMainBlock - heightBlock;
-  $(blackBlock).css({
-    position: "absolute",
-    width: "100%"
-  });
+  let swiper = [];
 
-  if (screenWidth) {
-    $(parent).css({
-      height: heightBlock - 140
+  function pageLoad() {
+    const tabItems = $('.nav-item');
+    $(tabItems).each(function (i, e) {
+      if (i === 1) $(this).find('.nav-link').trigger('click');
     });
-    $(blackBlock).css({
-      top: positionTop - 140
-    });
-    const heightBlockTest = document.querySelector('.b-tabs_black').scrollHeight;
-    if (heightBlockTest > heightBlock) $(parent).css({
-      'height': heightBlockTest - 140
+    $(tabItems).each(function (i, e) {
+      if (i === 0) $(this).find('.nav-link').trigger('click');
     });
   }
+
+  function initSlider() {
+    $('.tab-pane').each(function (i, e) {
+      const self = this;
+      swiper[i] = new Swiper($(this).find('.swiper-container'), {
+        slidesPerView: 1,
+        navigation: {
+          nextEl: $(this).find('.swiper-button-next'),
+          prevEl: $(this).find('.swiper-button-prev')
+        },
+        observer: true,
+        observeParents: true
+      });
+    });
+  }
+
+  initSlider();
+  pageLoad();
 });
 
 /***/ }),
@@ -860,6 +866,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 $(document).ready(function () {
   Object(components_page_page__WEBPACK_IMPORTED_MODULE_0__["default"])();
   Object(components_page_header_page_header__WEBPACK_IMPORTED_MODULE_1__["default"])();
@@ -873,6 +880,7 @@ $(document).ready(function () {
   Object(components_b_visual_floor_b_visual_floor__WEBPACK_IMPORTED_MODULE_9__["default"])();
   Object(components_b_tabs_b_tabs__WEBPACK_IMPORTED_MODULE_10__["default"])();
   Object(components_b_visual_b_visual__WEBPACK_IMPORTED_MODULE_11__["default"])();
+  Object(components_b_tabs_b_tabs__WEBPACK_IMPORTED_MODULE_10__["default"])();
   $("body").css("opacity", "1").addClass("body-ready");
 });
 
