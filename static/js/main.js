@@ -292,6 +292,55 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./markup/components/b-tabs-slider/b-tabs-slider.js":
+/*!**********************************************************!*\
+  !*** ./markup/components/b-tabs-slider/b-tabs-slider.js ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  let context = "b-tabs-slider";
+
+  if ($(`.${context}`).length == 0) {
+    return;
+  }
+
+  let swiper = [];
+
+  function pageLoad() {
+    const tabItems = $('.nav-item');
+    $(tabItems).each(function (i, e) {
+      if (i === 1) $(this).find('.nav-link').trigger('click');
+    });
+    $(tabItems).each(function (i, e) {
+      if (i === 0) $(this).find('.nav-link').trigger('click');
+    });
+  }
+
+  function initSlider() {
+    $('.tab-pane').each(function (i, e) {
+      const self = this;
+      swiper[i] = new Swiper($(this).find('.swiper-container'), {
+        slidesPerView: 1,
+        navigation: {
+          nextEl: $(this).find('.b-slider-nav__btn_next'),
+          prevEl: $(this).find('.b-slider-nav__btn_prev')
+        },
+        observer: true,
+        observeParents: true
+      });
+    });
+  }
+
+  initSlider();
+  pageLoad();
+});
+
+/***/ }),
+
 /***/ "./markup/components/b-tabs/b-tabs.js":
 /*!********************************************!*\
   !*** ./markup/components/b-tabs/b-tabs.js ***!
@@ -852,6 +901,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var components_b_visual_floor_b_visual_floor__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! components/b-visual-floor/b-visual-floor */ "./markup/components/b-visual-floor/b-visual-floor.js");
 /* harmony import */ var components_b_tabs_b_tabs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! components/b-tabs/b-tabs */ "./markup/components/b-tabs/b-tabs.js");
 /* harmony import */ var components_b_visual_b_visual__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! components/b-visual/b-visual */ "./markup/components/b-visual/b-visual.js");
+/* harmony import */ var components_b_tabs_slider_b_tabs_slider__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! components/b-tabs-slider/b-tabs-slider */ "./markup/components/b-tabs-slider/b-tabs-slider.js");
+
 
 
 
@@ -881,6 +932,7 @@ $(document).ready(function () {
   Object(components_b_tabs_b_tabs__WEBPACK_IMPORTED_MODULE_10__["default"])();
   Object(components_b_visual_b_visual__WEBPACK_IMPORTED_MODULE_11__["default"])();
   Object(components_b_tabs_b_tabs__WEBPACK_IMPORTED_MODULE_10__["default"])();
+  Object(components_b_tabs_slider_b_tabs_slider__WEBPACK_IMPORTED_MODULE_12__["default"])();
   $("body").css("opacity", "1").addClass("body-ready");
 });
 
