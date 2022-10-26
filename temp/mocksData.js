@@ -110,6 +110,10 @@ __pages: [{
                 href: 'become_the_owner.html',
                 desc: 'Стать владельцем',
              },{
+                name: 'contacts',
+                href: 'contacts.html',
+                desc: 'Контакты',
+             },{
                 name: 'docs',
                 href: 'docs.html',
                 desc: 'Документы',

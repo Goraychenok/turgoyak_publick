@@ -326,8 +326,8 @@ __webpack_require__.r(__webpack_exports__);
       swiper[i] = new Swiper($(this).find('.swiper-container'), {
         slidesPerView: 1,
         navigation: {
-          nextEl: $(this).find('.swiper-button-next'),
-          prevEl: $(this).find('.swiper-button-prev')
+          nextEl: $(this).find('.b-slider-nav__btn_next'),
+          prevEl: $(this).find('.b-slider-nav__btn_prev')
         },
         observer: true,
         observeParents: true
