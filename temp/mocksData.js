@@ -81,6 +81,11 @@ __iconsData: {
             height: '13px'
         },
     
+        'tt': {
+            width: '49px',
+            height: '25px'
+        },
+    
         'up': {
             width: '13px',
             height: '15px'
@@ -130,7 +135,15 @@ __pages: [{
                 href: 'page.html',
                 desc: 'Текстовая страница',
              },{
-                name: 'plans',
-                href: 'plans.html',
+                name: 'real_estate',
+                href: 'real_estate.html',
+                desc: 'Недвижимость',
+             },{
+                name: 'real_estate_inner',
+                href: 'real_estate_inner.html',
                 desc: 'Планировки',
+             },{
+                name: 'real_estate_items',
+                href: 'real_estate_items.html',
+                desc: 'Недвижимость',
              }]

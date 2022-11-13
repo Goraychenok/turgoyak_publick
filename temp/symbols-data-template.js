@@ -70,6 +70,11 @@ __iconsData: {
             height: '13px'
         },
     
+        'tt': {
+            width: '49px',
+            height: '25px'
+        },
+    
         'up': {
             width: '13px',
             height: '15px'
