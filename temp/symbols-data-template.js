@@ -71,7 +71,7 @@ __iconsData: {
         },
     
         'tt': {
-            width: '49px',
+            width: '55px',
             height: '25px'
         },
     
